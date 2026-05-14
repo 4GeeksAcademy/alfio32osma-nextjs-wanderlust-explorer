@@ -1,5 +1,24 @@
 # Design References: Wanderlust Labs Explorer
 
+## Design References (Visuales)
+
+Las siguientes capturas muestran las interfaces que inspiran el diseño de Wanderlust Labs Explorer:
+
+
+### 1. GetYourGuide
+![GetYourGuide](assets/modelo-getYourGuide.png)
+_Barra de búsqueda central, fondo visual atractivo y enfoque en actividades._
+
+### 2. Framer Supply
+![Framer Supply](assets/modelo-frameSupply.png)
+_Diseño minimalista, cuadrícula de tarjetas limpias y navegación moderna._
+
+### 3. Airbnb (Experiencias)
+![Airbnb Experiencias](assets/modelo-Airbnb.png)
+
+
+_Tarjetas visuales, filtros horizontales y experiencia de usuario intuitiva._
+
 Para el desarrollo del MVP, se han seleccionado las siguientes tres interfaces como referencia. Estas plataformas destacan por su claridad visual, el uso de tarjetas y, sobre todo, por una gestión impecable de filtros sincronizados con la URL.
 
 ---
