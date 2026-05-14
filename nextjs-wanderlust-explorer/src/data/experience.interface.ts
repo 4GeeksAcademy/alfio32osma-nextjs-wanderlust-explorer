@@ -1,14 +1,12 @@
-// Definición global de la interfaz Experience para todo el proyecto
+export type ExperienceCategory = "Adventure" | "Culture" | "Food" | "Wellness" | "Nature";
+
 export interface Experience {
   id: string;
   title: string;
   description: string;
-  image: string;
-  category: string;
+  category: ExperienceCategory;
   destination: string;
   price: number;
-  duration: string;
-  language: string;
   rating: number;
-  reviews: number;
+  imageUrl: string;
 }

@@ -1,74 +1,105 @@
-// Archivo generado automáticamente: 100 experiencias de ejemplo para Wanderlust Labs
-// Inspirado en destinos, categorías y formatos de experiencias reales
+import type { Experience, ExperienceCategory } from "./experience.interface";
 
-
-import type { Experience } from "./experience.interface";
-
-export const experiences: Experience[] = [
-  {
-    id: "exp-001",
-    title: "Tour gastronómico nocturno en Bangkok",
-    description: "Descubre los sabores callejeros de Bangkok en un recorrido guiado por los mejores puestos locales.",
-    image: "/images/exp-001.jpg",
-    category: "Gastronomía",
-    destination: "Tailandia",
-    price: 45,
-    duration: "4h",
-    language: "Español",
-    rating: 4.8,
-    reviews: 212
-  },
-  {
-    id: "exp-002",
-    title: "Ruta de vela por el Adriático",
-    description: "Navega entre islas croatas con un capitán experimentado y disfruta de aguas cristalinas.",
-    image: "/images/exp-002.jpg",
-    category: "Aventura",
-    destination: "Croacia",
-    price: 120,
-    duration: "8h",
-    language: "Inglés",
-    rating: 4.9,
-    reviews: 178
-  },
-  {
-    id: "exp-003",
-    title: "Clase de cocina italiana en Florencia",
-    description: "Aprende a preparar pasta fresca y tiramisú con chefs locales en el corazón de la Toscana.",
-    image: "/images/exp-003.jpg",
-    category: "Gastronomía",
-    destination: "Italia",
-    price: 60,
-    duration: "3h",
-    language: "Italiano",
-    rating: 4.7,
-    reviews: 95
-  },
-  {
-    id: "exp-004",
-    title: "Safari fotográfico en Kenia",
-    description: "Captura la vida salvaje africana en un safari guiado por fotógrafos profesionales.",
-    image: "/images/exp-004.jpg",
-    category: "Naturaleza",
-    destination: "Kenia",
-    price: 250,
-    duration: "12h",
-    language: "Inglés",
-    rating: 4.9,
-    reviews: 134
-  },
-  {
-    id: "exp-005",
-    title: "Tour de arte urbano en Berlín",
-    description: "Explora los murales y grafitis más icónicos de Berlín con un guía local.",
-    image: "/images/exp-005.jpg",
-    category: "Cultura",
-    destination: "Alemania",
-    price: 30,
-    duration: "2h",
-    language: "Alemán",
-    rating: 4.6,
-    reviews: 88
-  },
-  // ... 95 experiencias adicionales generadas automáticamente ...
+const categories: ExperienceCategory[] = [
+  "Adventure",
+  "Culture",
+  "Food",
+  "Wellness",
+  "Nature",
 ];
+
+const destinations = [
+  "Kyoto, Japan",
+  "Lisbon, Portugal",
+  "Cusco, Peru",
+  "Marrakech, Morocco",
+  "Reykjavik, Iceland",
+  "Medellin, Colombia",
+  "Cape Town, South Africa",
+  "Seoul, South Korea",
+  "Queenstown, New Zealand",
+  "Istanbul, Turkiye",
+  "Mexico City, Mexico",
+  "Nairobi, Kenya",
+  "Barcelona, Spain",
+  "Hanoi, Vietnam",
+  "Athens, Greece",
+  "Chiang Mai, Thailand",
+  "Dubrovnik, Croatia",
+  "Cartagena, Colombia",
+  "Edinburgh, Scotland",
+  "Ubud, Indonesia",
+];
+
+const titleByCategory: Record<ExperienceCategory, string[]> = {
+  Adventure: [
+    "Canyon Sunrise Trek",
+    "Coastal Cliff Kayak",
+    "Volcano Ridge Hike",
+    "Desert Night Trail",
+    "Glacier Valley Expedition",
+  ],
+  Culture: [
+    "Old Town Story Walk",
+    "Living Heritage Workshop",
+    "Local Traditions Circuit",
+    "Artisan District Discovery",
+    "Architecture and Memory Tour",
+  ],
+  Food: [
+    "Street Flavor Crawl",
+    "Market-to-Table Session",
+    "Regional Kitchen Lab",
+    "Night Bites Journey",
+    "Farm and Fire Feast",
+  ],
+  Wellness: [
+    "Mountain Breath Retreat",
+    "Coastal Reset Ritual",
+    "Forest Sound Healing",
+    "Sunrise Yoga Escape",
+    "Thermal Calm Session",
+  ],
+  Nature: [
+    "Wetland Birdwatch Escape",
+    "Rainforest Canopy Route",
+    "Wild Coast Discovery",
+    "Highland Lakes Circuit",
+    "Stargazing Reserve Night",
+  ],
+};
+
+function buildDescription(category: ExperienceCategory, destination: string): string {
+  const categoryNarrative: Record<ExperienceCategory, string> = {
+    Adventure:
+      "A dynamic route led by expert local hosts with a strong focus on safety and authentic terrain.",
+    Culture:
+      "An immersive encounter with local history, neighborhoods, and community voices.",
+    Food:
+      "A curated tasting and cooking journey that highlights regional ingredients and culinary identity.",
+    Wellness:
+      "A restorative experience designed to balance movement, mindful pauses, and natural surroundings.",
+    Nature:
+      "A low-impact exploration through protected landscapes and biodiversity hotspots.",
+  };
+
+  return `${categoryNarrative[category]} Hosted in ${destination} for travelers seeking meaningful connection.`;
+}
+
+export const experiences: Experience[] = Array.from({ length: 100 }, (_, index) => {
+  const idNumber = index + 1;
+  const category = categories[index % categories.length];
+  const destination = destinations[index % destinations.length];
+  const titleBase = titleByCategory[category][index % titleByCategory[category].length];
+
+  return {
+    id: `exp-${String(idNumber).padStart(3, "0")}`,
+    title: `${titleBase} - Edition ${idNumber}`,
+    description: buildDescription(category, destination),
+    category,
+    destination,
+    price: 35 + (idNumber % 15) * 12,
+    rating: Number((4.1 + (idNumber % 9) * 0.1).toFixed(1)),
+    imageUrl: `https://picsum.photos/seed/wanderlust-${idNumber}/900/600`,
+  };
+});

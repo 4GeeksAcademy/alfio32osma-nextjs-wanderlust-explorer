@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Imagen no disponible">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <g fill="#ffffff" fill-opacity="0.92">
+    <path d="M180 610h840l-120-240-140 160-110-220-170 210-90-90z" />
+    <circle cx="860" cy="220" r="56" />
+  </g>
+  <text x="50%" y="92%" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#ffffff">Imagen de experiencia no disponible</text>
+</svg>
