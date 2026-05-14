@@ -1,19 +1,8 @@
 // Archivo generado automáticamente: 100 experiencias de ejemplo para Wanderlust Labs
 // Inspirado en destinos, categorías y formatos de experiencias reales
 
-export type Experience = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  destination: string;
-  price: number;
-  duration: string;
-  language: string;
-  rating: number;
-  reviews: number;
-};
+
+import type { Experience } from "./experience.interface";
 
 export const experiences: Experience[] = [
   {
